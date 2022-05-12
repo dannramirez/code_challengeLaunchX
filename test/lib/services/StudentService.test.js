@@ -1,5 +1,5 @@
 const Reader = require("./../../../lib/util/Reader");
-const StudentService = require("./../../../lib/services/studentService");
+const StudentService = require("../../../lib/services/studentService");
 const students = Reader.readJsonFile("./test/lib/services/student_test.json");
 
 describe("Test for ExplorerService", () => {
@@ -62,5 +62,10 @@ describe("Test for ExplorerService", () => {
             "haveCertification": false
         }
         ]);
+    });
+
+    test("Get email list of students with certification", () => {
+        const emailStudentsCertificated = StudentService.getStudentsEmailsWithCertification(students);
+        expect(emailStudentsCertificated).toStrictEqual(["Todd@visualpartnership.xyz", "Sexton@visualpartnership.xyz", "Sharlene@visualpartnership.xyz", "Howell@visualpartnership.xyz"]);
     });
 });
