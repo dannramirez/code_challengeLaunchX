@@ -25,4 +25,9 @@ describe("Test for Stutends Controllers", () => {
         });
     });
 
+    test("Test to get Emails of certified students", () => {
+        const result = StudentController.getStudentsEmailsWithCertification();
+        expect(result[0]).toBe("Todd@visualpartnership.xyz");
+        expect(result[result.length - 1]).toBe("Hays@visualpartnership.xyz");
+    });
 });
