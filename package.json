@@ -1,20 +1,24 @@
 {
-  "name": "visual_thinking_api",
-  "version": "1.0.0",
-  "description": "Proyecto de visual partner-ship",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "DannRamirez",
-  "license": "ISC",
-  "devDependencies": {
-    "eslint": "^8.15.0",
-    "jest": "^28.1.0",
-    "nodemon": "^2.0.16",
-    "supertest": "^6.2.3"
-  },
-  "dependencies": {
-    "express": "^4.18.1"
-  }
+    "name": "visual_thinking_api",
+    "version": "1.0.0",
+    "description": "Proyecto de visual partner-ship",
+    "main": "app.js",
+    "scripts": {
+        "dev": "node_modules/.bin/nodemon ./lib/server.js",
+        "start": "node ./lib/server.js",
+        "test": "node ./node_modules/jest/bin/jest --verbose --silent",
+        "linter": "node ./node_modules/eslint/bin/eslint.js .",
+        "linter-fix": "node ./node_modules/eslint/bin/eslint.js . --fix"
+    },
+    "author": "DannRamirez",
+    "license": "ISC",
+    "devDependencies": {
+        "eslint": "^8.15.0",
+        "jest": "^28.1.0",
+        "nodemon": "^2.0.16",
+        "supertest": "^6.2.3"
+    },
+    "dependencies": {
+        "express": "^4.18.1"
+    }
 }
