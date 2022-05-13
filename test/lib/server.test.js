@@ -79,4 +79,34 @@ describe("Test endpoint responses", () => {
         ]);
     });
 
+    test("Gets a list of students with higher score than requested (score tested 500) with /v1/students/score/:score endpoint", async () => {
+        const response = await request.get("/v1/students/score/500");
+        expect(response.status).toBe(200);
+
+        expect(response.body.students[0]).toStrictEqual({
+            "credits": 508,
+            "email": "Todd@visualpartnership.xyz",
+            "enrollments": [
+                "Visual Thinking Intermedio",
+                "Visual Thinking Avanzado",
+            ],
+            "haveCertification": true,
+            "id": "6264d5d89f1df827eb84bb23",
+            "name": "Warren",
+            "previousCourses": 1,
+        });
+
+        expect(response.body.students[response.body.students.length - 1]).toStrictEqual({
+            "credits": 552,
+            "email": "Shields@visualpartnership.xyz",
+            "enrollments": [
+                "Visual Thinking Avanzado",
+                "Visual Thinking Intermedio",
+            ],
+            "haveCertification": true,
+            "id": "6264d5d8e384c8da8ea5c16b",
+            "name": "Ware",
+            "previousCourses": 4,
+        });
+    });
 });
